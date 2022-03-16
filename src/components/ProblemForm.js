@@ -42,6 +42,11 @@ class ProblemForm extends Component {
     this.setState({studentResponse: event.target.value});
   }
 
+  /*
+    Here is where we do evaluation
+      using helper functions
+    To determine how to alter the state
+  */
   handleSubmit(event) {
     event.preventDefault();
     
@@ -72,7 +77,7 @@ class ProblemForm extends Component {
     correctResponse = Number(correctResponse);
     correctResponse = Math.round((correctResponse + Number.EPSILON) * 100) / 100;
 
-    console.log([studentResponse, correctResponse]);
+    console.log(correctResponse);
 
     if( Math.abs(studentResponse - correctResponse) < 0.001 ) {
       this.setState({output: CORRECT});

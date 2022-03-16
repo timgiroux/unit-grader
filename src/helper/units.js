@@ -23,11 +23,11 @@ export const volumeOptions = [ LITERS,
                                GALLONS,
                              ];
 
+// used by ProblemForm to generate select options
 export const unitOptions = tempOptions.concat(volumeOptions);
 
 
 
-// NOTE, these values must have many significant figures for accurate results
 // constants for converting from <unit> to celsius
 const KELVIN_S    = 273.15;
 
@@ -42,6 +42,7 @@ const RANKINE_M = 9/5;
   // Assume US Tablespoons
     // TODO clarify with client
   // https://www.metric-conversions.org/volume/us-tablespoons-to-liters.htm
+// NOTE, these values must be correct to >4 digits for accurate results
 const TABLESPOONS_M  = 67.628045;
 
 const CUBICINCHES_M = 61.023744;
@@ -53,6 +54,8 @@ const CUPS_M = 4.22675;
 
 const CUBICFEET_M = 0.03531467;
 
+  // Assume US Liquid Gallons
+    // TODO clarify with client
 const GALLONS_M = 0.2641729;
 
 
@@ -92,12 +95,11 @@ export const unitFuncs = {
                                     targetUnit);
         }
         else {
-          // TODO throw properly
           throw Error('Invalid Units!');
         }
     },
     tempConvert: function(inputNum, inputUnit, targetUnit) {
-        // convert to base unit
+        // normalize to celsius
         var normTemp = this.normalizeTemp(inputNum, inputUnit);
 
         // convert to target unit
@@ -114,11 +116,11 @@ export const unitFuncs = {
             return NaN;
           }
     },
-      /*
-        returns inputNum as celsius
-        expects temperature input
-      */
-      normalizeTemp: function(inputNum, inputUnit) {
+    /*
+      returns inputNum as celsius
+      expects temperature input
+    */
+    normalizeTemp: function(inputNum, inputUnit) {
         switch(inputUnit) {
           case CELSIUS:
             return inputNum;
@@ -131,9 +133,9 @@ export const unitFuncs = {
           default:
             return NaN;
         }
-      },
+    },
     volumeConvert: function(inputNum, inputUnit, targetUnit) {
-        // convert to base unit
+        // normalize to liters
         var normVolume = this.normalizeVolume(inputNum, inputUnit);
 
         // convert to target unit
@@ -152,13 +154,13 @@ export const unitFuncs = {
             return normVolume * GALLONS_M;
           default:
             return NaN;
-      }
+        }
     },
-      /*
-        returns inputNum as liters
-        expects volume input
-      */
-      normalizeVolume: function(inputNum, inputUnit) {
+    /*
+      returns inputNum as liters
+      expects volume input
+    */
+    normalizeVolume: function(inputNum, inputUnit) {
         switch(inputUnit) {
           case LITERS:
             return inputNum;
@@ -174,7 +176,7 @@ export const unitFuncs = {
             return inputNum / GALLONS_M;
           default:
             return NaN;
-          }
-        },
+        }
+    },
 }
 
