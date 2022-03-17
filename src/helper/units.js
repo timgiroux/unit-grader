@@ -29,10 +29,10 @@ export const unitOptions = tempOptions.concat(volumeOptions);
 
 
 // constants for converting from <unit> to celsius
-const KELVIN_S    = 273.15;
+const KELVIN_S = 273.15;
 
-const FAHRENHEIT_S  = 32;
-const FAHRENHEIT_M  = 1.8;
+const FAHRENHEIT_S = 32;
+const FAHRENHEIT_M = 1.8;
 
 const RANKINE_S = 491.67;
 const RANKINE_M = 9/5;
@@ -43,7 +43,7 @@ const RANKINE_M = 9/5;
     // TODO clarify with client
   // https://www.metric-conversions.org/volume/us-tablespoons-to-liters.htm
 // NOTE, these values must be correct to >4 digits for accurate results
-const TABLESPOONS_M  = 67.628045;
+const TABLESPOONS_M = 67.628045;
 
 const CUBICINCHES_M = 61.023744;
 
@@ -85,17 +85,17 @@ export const unitFuncs = {
     */
     unitConvert: function(inputNum, inputUnit, targetUnit) {
         if( this.isTemperature(inputUnit, targetUnit) ) {
-          return this.tempConvert(inputNum,
-                                  inputUnit,
-                                  targetUnit);
-        }
-        else if( this.isVolume(inputUnit, targetUnit) ) {
-          return this.volumeConvert(inputNum,
+            return this.tempConvert(inputNum,
                                     inputUnit,
                                     targetUnit);
         }
+        else if( this.isVolume(inputUnit, targetUnit) ) {
+            return this.volumeConvert(inputNum,
+                                      inputUnit,
+                                      targetUnit);
+        }
         else {
-          throw Error('Invalid Units!');
+            throw Error('Invalid Units!');
         }
     },
     tempConvert: function(inputNum, inputUnit, targetUnit) {
@@ -104,17 +104,17 @@ export const unitFuncs = {
 
         // convert to target unit
         switch(targetUnit) {
-          case CELSIUS:
-            return normTemp;
-          case KELVIN:
-            return normTemp + KELVIN_S;
-          case FAHRENHEIT:
-            return (FAHRENHEIT_M * normTemp) + FAHRENHEIT_S;
-          case RANKINE:
-            return (RANKINE_M * normTemp) + RANKINE_S;
-          default:
-            return NaN;
-          }
+            case CELSIUS:
+                return normTemp;
+            case KELVIN:
+                return normTemp + KELVIN_S;
+            case FAHRENHEIT:
+                return (FAHRENHEIT_M * normTemp) + FAHRENHEIT_S;
+            case RANKINE:
+                return (RANKINE_M * normTemp) + RANKINE_S;
+            default:
+                return NaN;
+        }
     },
     /*
       returns inputNum as celsius
@@ -122,16 +122,16 @@ export const unitFuncs = {
     */
     normalizeTemp: function(inputNum, inputUnit) {
         switch(inputUnit) {
-          case CELSIUS:
-            return inputNum;
-          case KELVIN:
-            return inputNum - KELVIN_S
-          case FAHRENHEIT:
-            return (inputNum - FAHRENHEIT_S) / FAHRENHEIT_M;
-          case RANKINE:
-            return (inputNum - RANKINE_S) / RANKINE_M;
-          default:
-            return NaN;
+            case CELSIUS:
+                return inputNum;
+            case KELVIN:
+                return inputNum - KELVIN_S
+            case FAHRENHEIT:
+                return (inputNum - FAHRENHEIT_S) / FAHRENHEIT_M;
+            case RANKINE:
+                return (inputNum - RANKINE_S) / RANKINE_M;
+            default:
+                return NaN;
         }
     },
     volumeConvert: function(inputNum, inputUnit, targetUnit) {
@@ -140,20 +140,20 @@ export const unitFuncs = {
 
         // convert to target unit
         switch(targetUnit) {
-          case LITERS:
-            return normVolume;
-          case TABLESPOONS:
-            return normVolume * TABLESPOONS_M;
-          case CUBICINCHES:
-            return normVolume * CUBICINCHES_M;
-          case CUPS:
-            return normVolume * CUPS_M;
-          case CUBICFEET:
-            return normVolume * CUBICFEET_M;
-          case GALLONS:
-            return normVolume * GALLONS_M;
-          default:
-            return NaN;
+            case LITERS:
+                return normVolume;
+            case TABLESPOONS:
+                return normVolume * TABLESPOONS_M;
+            case CUBICINCHES:
+                return normVolume * CUBICINCHES_M;
+            case CUPS:
+                return normVolume * CUPS_M;
+            case CUBICFEET:
+                return normVolume * CUBICFEET_M;
+            case GALLONS:
+                return normVolume * GALLONS_M;
+            default:
+                return NaN;
         }
     },
     /*
@@ -162,20 +162,20 @@ export const unitFuncs = {
     */
     normalizeVolume: function(inputNum, inputUnit) {
         switch(inputUnit) {
-          case LITERS:
-            return inputNum;
-          case TABLESPOONS:
-            return inputNum / TABLESPOONS_M;
-          case CUBICINCHES:
-            return inputNum / CUBICINCHES_M;
-          case CUPS:
-            return inputNum / CUPS_M;
-          case CUBICFEET:
-            return inputNum / CUBICFEET_M;
-          case GALLONS:
-            return inputNum / GALLONS_M;
-          default:
-            return NaN;
+            case LITERS:
+                return inputNum;
+            case TABLESPOONS:
+                return inputNum / TABLESPOONS_M;
+            case CUBICINCHES:
+                return inputNum / CUBICINCHES_M;
+            case CUPS:
+                return inputNum / CUPS_M;
+            case CUBICFEET:
+                return inputNum / CUBICFEET_M;
+            case GALLONS:
+                return inputNum / GALLONS_M;
+            default:
+                return NaN;
         }
     },
 }

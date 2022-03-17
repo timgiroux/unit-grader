@@ -8,7 +8,6 @@ function App() {
         <h1>Unit Grader</h1>
       </header>
       <ProblemForm />
-
     </div>
   );
 }
