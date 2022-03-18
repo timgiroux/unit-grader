@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './ProblemForm.css';
-
 import FormHeader from './FormHeader.js';
 import UnitOutput from './UnitOutput.js';
 import { unitOptions,
@@ -30,16 +29,20 @@ class ProblemForm extends Component {
   }
 
   handleNumChange(event) {
-    this.setState({inputNum: event.target.value});
+    this.setState({inputNum: event.target.value,
+                   output: ''});
   }
   handleUnitChange(event) {
-    this.setState({inputUnit: event.target.value});
+    this.setState({inputUnit: event.target.value,
+                   output: ''});
   }
   handleTargetUnitChange(event) {
-    this.setState({targetUnit: event.target.value});
+    this.setState({targetUnit: event.target.value,
+                   output: ''});
   }
   handleStudentResponseChange(event) {
-    this.setState({studentResponse: event.target.value});
+    this.setState({studentResponse: event.target.value,
+                   output: ''});
   }
 
   /*
@@ -90,6 +93,7 @@ class ProblemForm extends Component {
   }
 
   render() {
+    // use HTML table for form styling
     return (
       <form onSubmit={this.handleSubmit}>
         <table className="problemForm">

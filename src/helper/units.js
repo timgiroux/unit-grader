@@ -27,8 +27,9 @@ export const volumeOptions = [ LITERS,
 export const unitOptions = tempOptions.concat(volumeOptions);
 
 
-
 // constants for converting from <unit> to celsius
+// _S: scalar
+// _M: multiplier
 const KELVIN_S = 273.15;
 
 const FAHRENHEIT_S = 32;

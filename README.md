@@ -2,6 +2,8 @@
 
 Determine the correctness of student responses to unit conversion problems.
 
+https://main.d1yrzg8bpj0hxg.amplifyapp.com/
+
 Supported unit conversions are in two categories:
  * Temperature
     * Celsius
@@ -32,5 +34,4 @@ Supported unit conversions are in two categories:
   * Implement tests
   * Implement any missing React best-practices.
   * Improve the user interface to be more appealing.
-  * Support continuous deployment.
 
