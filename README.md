@@ -1,7 +1,5 @@
 # Unit Grader
 
-https://gtim.xyz/unit-grader/
-
 Determine the correctness of student responses to unit conversion problems.
 
 https://main.d1yrzg8bpj0hxg.amplifyapp.com/
