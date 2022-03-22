@@ -24,8 +24,8 @@ Supported unit conversions are in two categories:
   A webpage will be served on localhost.
 
 # Deploy
-  Run ```npm run build``` to produce static files
-  Host the static files from an HTTP server
+  1. Run ```npm run build``` to produce static files.
+  2. Host the static files from an HTTP server
 ---
 
 # Future Work
