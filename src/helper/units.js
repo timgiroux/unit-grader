@@ -101,7 +101,9 @@ export const unitFuncs = {
     },
     tempConvert: function(inputNum, inputUnit, targetUnit) {
         // normalize to celsius
+        inputNum = Number(inputNum);
         var normTemp = this.normalizeTemp(inputNum, inputUnit);
+        normTemp = Number(normTemp);
 
         // convert to target unit
         switch(targetUnit) {
@@ -137,7 +139,9 @@ export const unitFuncs = {
     },
     volumeConvert: function(inputNum, inputUnit, targetUnit) {
         // normalize to liters
+        inputNum = Number(inputNum);
         var normVolume = this.normalizeVolume(inputNum, inputUnit);
+        normVolume = Number(normVolume);
 
         // convert to target unit
         switch(targetUnit) {
